@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoveMainCam : MonoBehaviour
 {
     public Transform camTransform, camDestination;
+    public Text speedText;
     public float camSpeed = 1.5f, maxSpeed = 5f, maxDelta = 0.5f;
-    public bool isAccelerating;
+    public bool isAccelerating;   
 
     void Start()
     {
@@ -15,6 +17,7 @@ public class MoveMainCam : MonoBehaviour
 
     void Update()
     {
+        speedText.text = " " + ((short)camSpeed); 
         camTransform.position = Vector3.MoveTowards(camTransform.position, camDestination.position, camSpeed*Time.deltaTime);
 
         if (isAccelerating && camSpeed <= maxSpeed)
@@ -26,5 +29,25 @@ public class MoveMainCam : MonoBehaviour
         {
             camSpeed = Mathf.MoveTowards(camSpeed, 0f, maxDelta * Time.deltaTime);
         }
+    }
+
+    public void StartAcceleration()
+    {
+        isAccelerating = true;
+    }
+
+    public void StopAcceleration()
+    {
+        isAccelerating = false;
+    }
+
+    public void ChangeDelta(float exe)
+    {
+        maxDelta = exe;
+    }
+
+    public void ChangeMaxSpeed(float exo)
+    {
+        maxSpeed = exo;
     }
 }
