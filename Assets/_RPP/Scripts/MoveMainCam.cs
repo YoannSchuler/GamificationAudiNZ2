@@ -17,7 +17,7 @@ public class MoveMainCam : MonoBehaviour
 
     void Update()
     {
-        speedText.text = " " + ((short)camSpeed); 
+        speedText.text = "" + ((short)camSpeed); 
         camTransform.position = Vector3.MoveTowards(camTransform.position, camDestination.position, camSpeed*Time.deltaTime);
 
         if (isAccelerating && camSpeed <= maxSpeed)
