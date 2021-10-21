@@ -7,6 +7,10 @@ public class MoveMainCam : MonoBehaviour
 {
     public Transform camTransform, camDestination;
     public Text speedText;
+    public float[] futureSpeedValues;
+    int currentSpeedValue = 0;
+    public float[] futureDeltaValues;
+    int currentDeltaValue = 0;
     public float camSpeed = 1.5f, maxSpeed = 5f, maxDelta = 0.5f;
     public bool isAccelerating;   
 
@@ -31,23 +35,25 @@ public class MoveMainCam : MonoBehaviour
         }
     }
 
-    public void StartAcceleration()
+    [SerializeField] void StartAcceleration()
     {
         isAccelerating = true;
     }
 
-    public void StopAcceleration()
+    [SerializeField] void StopAcceleration()
     {
         isAccelerating = false;
     }
 
-    public void ChangeDelta(float exe)
+    public void ChangeDelta()
     {
-        maxDelta = exe;
+        maxDelta = futureDeltaValues [currentDeltaValue];
+        currentDeltaValue ++;
     }
 
-    public void ChangeMaxSpeed(float exo)
+    public void ChangeMaxSpeed()
     {
-        maxSpeed = exo;
+        maxSpeed = futureSpeedValues[currentSpeedValue];
+        currentSpeedValue++;
     }
 }
