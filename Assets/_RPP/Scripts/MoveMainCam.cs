@@ -12,7 +12,7 @@ public class MoveMainCam : MonoBehaviour
     public float[] futureDeltaValues;
     int currentDeltaValue = 0;
     public float camSpeed = 1.5f, maxSpeed = 5f, maxDelta = 0.5f;
-    public bool isAccelerating;   
+    public bool isAccelerating, isChangingSpeed = false;   
 
     void Start()
     {
@@ -33,6 +33,15 @@ public class MoveMainCam : MonoBehaviour
         {
             camSpeed = Mathf.MoveTowards(camSpeed, 0f, maxDelta * Time.deltaTime);
         }
+
+        if(isChangingSpeed && camSpeed != maxSpeed)
+        {
+            camSpeed = Mathf.MoveTowards(camSpeed, maxSpeed, maxDelta * Time.deltaTime);
+        }
+        else
+        {
+            isChangingSpeed = false;
+        }
     }
 
     [SerializeField] void StartAcceleration()
@@ -43,6 +52,11 @@ public class MoveMainCam : MonoBehaviour
     [SerializeField] void StopAcceleration()
     {
         isAccelerating = false;
+    }
+
+    public void ChangeCurrentSpeed()
+    {
+        isChangingSpeed = true;
     }
 
     public void ChangeDelta()
