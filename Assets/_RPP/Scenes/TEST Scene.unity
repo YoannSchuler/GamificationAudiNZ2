@@ -1118,6 +1118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 221448502}
   - component: {fileID: 221448501}
+  - component: {fileID: 221448505}
   - component: {fileID: 221448504}
   - component: {fileID: 221448503}
   m_Layer: 0
@@ -1192,6 +1193,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d63f88e28cd21904f8cbb310199f4ae8, type: 2}
     - {fileID: 11400000, guid: dbd1928152987cc41ae6eaea9acbdfc0, type: 2}
     - {fileID: 11400000, guid: 2b83a6a754316fb44ab2d0b38e4ec29e, type: 2}
+    - {fileID: 11400000, guid: e21636c35018a374f9ee5d00e062ad97, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -1263,6 +1265,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 221448505}
+          m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+          m_MethodName: ResetMovie
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!320 &221448504
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -1314,6 +1330,18 @@ PlayableDirector:
     value: {fileID: 1726701197}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &221448505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221448500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b72147a3935d3943ab4e5dfdafec6f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &233057199
 GameObject:
   m_ObjectHideFlags: 0
